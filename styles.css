@@ -307,3 +307,40 @@ footer {
     transform: none;
     visibility: visible;
 }
+/* Pagination Controls */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding-bottom: 20px;
+}
+
+.page-btn {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-btn:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.page-btn.active {
+    background-color: var(--accent-color);
+    color: white;
+    box-shadow: 0 4px 10px rgba(201, 160, 142, 0.4);
+}
