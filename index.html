@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>축 유성이 첫돌!!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero">
+        <div class="hero-content">
+            <h1>축 유성이 첫돌!!</h1>
+            <p>유성이의 첫 번째 생일파티에 와주셔서 감사합니다.<br>우리가 함께한 소중한 순간들을 나눕니다.</p>
+            <div class="scroll-indicator">
+                <span>추억 보기</span>
+                <div class="arrow"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="gallery-container">
+        <!-- Videos Section -->
+        <section class="media-section" id="video-section">
+            <h2 class="section-title">스페셜 영상</h2>
+            <div class="video-grid" id="video-grid">
+                <!-- Videos will be injected here by JS -->
+            </div>
+        </section>
+
+        <!-- Photos Section -->
+        <section class="media-section" id="photo-section">
+            <h2 class="section-title">소중한 순간들</h2>
+            <div class="masonry-grid" id="photo-grid">
+                <!-- Photos will be injected here by JS -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>건강하고 밝게 자라겠습니다 ✨</p>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn">&times;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="확대된 이미지">
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
