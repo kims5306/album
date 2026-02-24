@@ -55,9 +55,24 @@
                 /* photoItem.style.gridRowEnd */
             };
 
-            // Lightbox functionality
-            photoItem.addEventListener('click', () => {
-                openLightbox(photoSrc);
+            // Expand functionality
+            photoItem.addEventListener('click', (e) => {
+                e.stopPropagation(); // prevent document click from closing it immediately
+
+                // Close any currently expanded item
+                document.querySelectorAll('.photo-item.expanded').forEach(item => {
+                    if (item !== photoItem) item.classList.remove('expanded');
+                });
+
+                // Toggle this item
+                const isExpanded = photoItem.classList.toggle('expanded');
+
+                // Toggle body scroll
+                if (isExpanded) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
             });
 
             photoItem.appendChild(img);
@@ -96,43 +111,22 @@
 
     // Initialize first page
     loadPage(currentPage);
-
-    // 2. Lightbox Logic
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-    const closeBtn = document.querySelector('.close-btn');
-
-    function openLightbox(src) {
-        lightboxImg.src = src;
-        lightbox.style.display = 'flex';
-        // Small delay to allow display flex to apply before opacity transition
-        setTimeout(() => {
-            lightbox.classList.add('active');
-        }, 10);
-        document.body.style.overflow = 'hidden'; // Prevent scrolling
-    }
-
-    function closeLightbox() {
-        lightbox.classList.remove('active');
-        setTimeout(() => {
-            lightbox.style.display = 'none';
-        }, 300); // match css transition
-        document.body.style.overflow = '';
-    }
-
-    closeBtn.addEventListener('click', closeLightbox);
-
-    // Close on background click
-    lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) {
-            closeLightbox();
+    // Close expanded photo on background click or escape
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.photo-item.expanded')) {
+            document.querySelectorAll('.photo-item.expanded').forEach(item => {
+                item.classList.remove('expanded');
+            });
+            document.body.style.overflow = '';
         }
     });
 
-    // Close on Escape key
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && lightbox.classList.contains('active')) {
-            closeLightbox();
+        if (e.key === 'Escape') {
+            document.querySelectorAll('.photo-item.expanded').forEach(item => {
+                item.classList.remove('expanded');
+            });
+            document.body.style.overflow = '';
         }
     });
 
