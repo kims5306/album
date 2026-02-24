@@ -48,7 +48,7 @@
             // Layout logic
             img.onload = function () {
                 photoItem.classList.add('loaded');
-                const rowHeight = 10;
+                const rowHeight = 20;
                 const gap = 15;
                 const clientHeight = img.getBoundingClientRect().height;
                 const rowSpan = Math.ceil((clientHeight + gap) / (rowHeight + gap));
