@@ -48,11 +48,11 @@
             // Layout logic
             img.onload = function () {
                 photoItem.classList.add('loaded');
-                const rowHeight = 20;
+                /* const rowHeight = 20; removed */
                 const gap = 15;
                 const clientHeight = img.getBoundingClientRect().height;
-                const rowSpan = Math.ceil((clientHeight + gap) / (rowHeight + gap));
-                photoItem.style.gridRowEnd = `span ` + rowSpan;
+                /* const rowSpan */
+                /* photoItem.style.gridRowEnd */
             };
 
             // Lightbox functionality
