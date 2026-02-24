@@ -1,9 +1,13 @@
 ﻿/* Base Styles */
 :root {
-    --primary-color: #f7ede8; /* 아주 연한 코랄 베이지 (따뜻한 느낌) */
-    --secondary-color: #e5d4cb; /* 조금 더 진한 베이지 */
-    --text-color: #4a4a4a; /* 부드러운 진회색 */
-    --accent-color: #c9a08e; /* 고급스러운 골드 브라운 */
+    --primary-color: #f7ede8;
+    /* 아주 연한 코랄 베이지 (따뜻한 느낌) */
+    --secondary-color: #e5d4cb;
+    /* 조금 더 진한 베이지 */
+    --text-color: #4a4a4a;
+    /* 부드러운 진회색 */
+    --accent-color: #c9a08e;
+    /* 고급스러운 골드 브라운 */
     --bg-color: #ffffff;
     --font-heading: 'Noto Serif KR', serif;
     --font-body: 'Apple SD Gothic Neo', 'Malgun Gothic', 'Noto Sans KR', sans-serif;
@@ -23,15 +27,17 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
     font-family: var(--font-heading);
     font-weight: 700;
 }
 
 /* Hero Section */
 .hero {
-    background: linear-gradient(rgba(247, 237, 232, 0.7), rgba(247, 237, 232, 0.9)), 
-                url('assets/%EC%9C%A0%EC%84%B1%EC%9D%B4_%EB%8F%8C%EC%9E%94%EC%B9%98_%EC%82%AC%EC%A7%84_01.jpg');
+    background: linear-gradient(rgba(247, 237, 232, 0.7), rgba(247, 237, 232, 0.9)),
+        url('assets/%EC%9C%A0%EC%84%B1%EC%9D%B4_%EB%8F%8C%EC%9E%94%EC%B9%98_%EC%82%AC%EC%A7%84_01.jpg');
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -47,7 +53,10 @@ h1, h2, h3 {
 .hero::before {
     content: '';
     position: absolute;
-    top: 5vmin; left: 5vmin; right: 5vmin; bottom: 5vmin;
+    top: 5vmin;
+    left: 5vmin;
+    right: 5vmin;
+    bottom: 5vmin;
     border: 1px solid var(--accent-color);
     opacity: 0.3;
     animation: fadeIn border 2s ease-in-out;
@@ -103,7 +112,7 @@ h1, h2, h3 {
     padding: 60px 20px;
     border-top-left-radius: 40px;
     border-top-right-radius: 40px;
-    box-shadow: 0 -10px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.05);
     margin-top: -30px;
     position: relative;
     z-index: 10;
@@ -143,7 +152,7 @@ h1, h2, h3 {
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease;
     background: #000;
 }
@@ -154,7 +163,8 @@ h1, h2, h3 {
 
 .video-item video {
     width: 100%;
-    max-height: 70vh; /* Prevent videos from being too tall on mobile */
+    max-height: 70vh;
+    /* Prevent videos from being too tall on mobile */
     vertical-align: middle;
     object-fit: cover;
 }
@@ -170,25 +180,32 @@ h1, h2, h3 {
 
 /* Item styling */
 .photo-item {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%;
+    /* Forces perfect square */
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     cursor: pointer;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    background-color: #f4f4f4; /* placeholder color */
+    background-color: #f4f4f4;
 }
 
 .photo-item:hover {
     transform: scale(1.02);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
 }
 
 .photo-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
-    opacity: 0; 
+    opacity: 0;
     transition: opacity 0.5s ease;
 }
 
@@ -201,7 +218,10 @@ h1, h2, h3 {
     display: none;
     position: fixed;
     z-index: 1000;
-    top: 0; left: 0; width: 100%; height: 100%;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
     justify-content: center;
@@ -216,17 +236,21 @@ h1, h2, h3 {
 }
 
 .lightbox-content {
-    max-width: 90%;
-    max-height: 90vh; /* changed from 90vh to fix squishing */ object-fit: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
     animation: zoomIn 0.3s ease;
 }
 
 .lightbox-img {
-    object-fit: contain;
     max-width: 100%;
-    max-height: 90vh; /* changed from 90vh to fix squishing */ object-fit: contain;
+    max-height: 90vh;
+    object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
 }
 
 .close-btn {
@@ -261,9 +285,10 @@ footer {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .video-item {
-        width: calc(50% - 15px); /* 2 per row */
+        width: calc(50% - 15px);
+        /* 2 per row */
     }
 
     .masonry-grid {
@@ -280,19 +305,46 @@ footer {
 
 /* Animations */
 @keyframes slideUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 @keyframes bounce {
-    0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
-    40% { transform: translateY(-15px) translateX(-50%); }
-    60% { transform: translateY(-7px) translateX(-50%); }
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateY(0) translateX(-50%);
+    }
+
+    40% {
+        transform: translateY(-15px) translateX(-50%);
+    }
+
+    60% {
+        transform: translateY(-7px) translateX(-50%);
+    }
 }
 
 @keyframes zoomIn {
-    from { transform: scale(0.95); opacity: 0; }
-    to { transform: scale(1); opacity: 1; }
+    from {
+        transform: scale(0.95);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 /* Fade in classes for scroll animation */
@@ -303,11 +355,13 @@ footer {
     transition: opacity 1s ease-out, transform 1.2s ease-out;
     will-change: opacity, visibility;
 }
+
 .fade-in-section.is-visible {
     opacity: 1;
     transform: none;
     visibility: visible;
 }
+
 /* Pagination Controls */
 .pagination {
     display: flex;
