@@ -74,7 +74,8 @@
             paginationContainer = document.createElement('div');
             paginationContainer.id = 'pagination-controls';
             paginationContainer.className = 'pagination';
-            photoGrid.parentNode.appendChild(paginationContainer); // Append below masonry-grid
+            // Append after the entire photo-section instead of inside it
+            document.getElementById('photo-section').after(paginationContainer);
         }
 
         paginationContainer.innerHTML = ''; // clear old controls
